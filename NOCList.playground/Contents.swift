@@ -29,23 +29,40 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-
+var agentOne = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+var agentTwo = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+var agentThree = (coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
+var agentFour = (coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+var agentFive = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+var agentSix = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+var agentSeven = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+var agentEight = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+var agentNine = (coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+var agentTen = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+var agentEleven = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
-
+var agentArray: [(coverName: String, realName: String,accessLevel: Int, compromised: Bool)]  = [agentOne, agentTwo, agentThree, agentFour, agentFive, agentSix, agentSeven, agentEight, agentNine, agentTen, agentEleven]
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
+func compromised(_ array: [(coverName: String, realName: String,accessLevel: Int, compromised: Bool)])-> Int {
+    var total = 0
+    for agent in array {
+        if agent.compromised {
+            total += 1
+        }
+    }
+    return total
+}
 
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
-
+var total = compromised(agentArray)
+print("\(total) agents have been compromised!")
 
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
